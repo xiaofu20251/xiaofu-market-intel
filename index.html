@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Xiaofu Market Intel — AI时代投资日报</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#050608;color:#e4e8f0;font-family:Inter,-apple-system,system-ui,sans-serif;line-height:1.72;-webkit-font-smoothing:antialiased;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:256px 256px}
+.container{max-width:720px;margin:0 auto;padding:48px 24px 96px}
+
+/* Hero */
+.hero{text-align:center;padding:60px 0 40px}
+.hero-badge{display:inline-block;padding:4px 14px;border-radius:20px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.15);font-size:11px;color:#d4af37;letter-spacing:.1em;margin-bottom:20px}
+.hero h1{font-size:28px;font-weight:800;letter-spacing:-.02em;margin-bottom:12px}
+.hero h1 span{color:#d4af37}
+.hero p{color:#5a6678;font-size:14px;max-width:480px;margin:0 auto}
+
+/* Cards */
+.card{background:rgba(14,18,28,.75);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.04);border-radius:16px;padding:28px;margin-bottom:20px;transition:border-color .3s}
+.card:hover{border-color:rgba(212,175,55,.15)}
+.card-header{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.card-header .dot{width:8px;height:8px;border-radius:50%}
+.card-header h2{font-size:14px;font-weight:700;letter-spacing:.04em}
+.card-header .meta{font-size:11px;color:#5a6678;margin-left:auto}
+
+/* Market grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.grid-item{background:rgba(9,12,18,.6);border-radius:10px;padding:14px;text-align:center}
+.grid-item .symbol{font-size:11px;color:#5a6678;letter-spacing:.06em;margin-bottom:4px}
+.grid-item .price{font-size:18px;font-weight:700}
+.grid-item .change{font-size:12px;margin-top:2px}
+.up{color:#22c55e}
+.down{color:#ef4444}
+.neutral{color:#d4af37}
+
+/* Holding row */
+.holding-row{display:flex;align-items:center;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.03)}
+.holding-row:last-child{border-bottom:0}
+.holding-symbol{width:70px;font-weight:700;font-size:13px}
+.holding-price{width:80px;font-size:13px;text-align:right}
+.holding-change{width:70px;font-size:12px;text-align:right}
+.holding-note{flex:1;font-size:11px;color:#5a6678;text-align:right}
+
+/* Signal bar */
+.signal{background:linear-gradient(135deg,rgba(212,175,55,.06),rgba(212,175,55,.01));border:1px solid rgba(212,175,55,.12);border-radius:12px;padding:20px 24px;margin-bottom:20px}
+.signal-label{font-size:10px;color:#d4af37;letter-spacing:.1em;margin-bottom:6px}
+.signal-text{font-size:14px;font-weight:600}
+
+/* AI digest */
+.digest-item{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.03)}
+.digest-item:last-child{border-bottom:0}
+.digest-tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:.04em;margin-right:8px}
+.tag-chip{background:rgba(96,165,250,.1);color:#60a5fa}
+.tag-power{background:rgba(212,175,55,.1);color:#d4af37}
+.tag-ai{background:rgba(168,85,247,.1);color:#a855f7}
+.digest-text{font-size:12px;color:#b0b8c8}
+
+/* CTA */
+.cta{text-align:center;margin-top:40px}
+.cta h3{font-size:18px;margin-bottom:8px}
+.cta p{color:#5a6678;font-size:13px;margin-bottom:20px}
+.cta-btn{display:inline-block;padding:14px 40px;background:#d4af37;color:#050608;border-radius:12px;font-weight:700;font-size:14px;text-decoration:none;letter-spacing:.02em;transition:box-shadow .3s}
+.cta-btn:hover{box-shadow:0 0 40px rgba(212,175,55,.2)}
+.cta-sub{font-size:11px;color:#5a6678;margin-top:12px}
+
+/* Footer */
+.footer{text-align:center;padding:40px 0;color:#3a4558;font-size:11px}
+
+@media(max-width:600px){.grid{grid-template-columns:repeat(2,1fr)}.hero h1{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="hero">
+  <div class="hero-badge">2026.5.27 盘后 · 创刊号</div>
+  <h1>Xiaofu <span>Market Intel</span></h1>
+  <p>AI时代投资者的每日情报 — SMH仓位分析 · 半导体风向 · 持仓体检</p>
+</div>
+
+<!-- Market Snapshot -->
+<div class="card">
+  <div class="card-header">
+    <div class="dot" style="background:#d4af37"></div>
+    <h2>市场快照</h2>
+    <div class="meta">5月26日收盘</div>
+  </div>
+  <div class="grid">
+    <div class="grid-item"><div class="symbol">SPY</div><div class="price up">$750.59</div><div class="change up">+0.66%</div></div>
+    <div class="grid-item"><div class="symbol">QQQ</div><div class="price up">$730.28</div><div class="change up">+1.78%</div></div>
+    <div class="grid-item"><div class="symbol">SMH</div><div class="price up">$602.14</div><div class="change up">+4.48%</div></div>
+    <div class="grid-item"><div class="symbol">VIX</div><div class="price neutral">—</div><div class="change neutral">待更新</div></div>
+  </div>
+</div>
+
+<!-- Core Holdings -->
+<div class="card">
+  <div class="card-header">
+    <div class="dot" style="background:#60a5fa"></div>
+    <h2>核心持仓扫描</h2>
+    <div class="meta">vs 52周高点</div>
+  </div>
+  <div class="holding-row"><span class="holding-symbol">SMH</span><span class="holding-price">$602.14</span><span class="holding-change up">+4.48%</span><span class="holding-note">距52周高 -0.3% ⚠️ ATH边缘</span></div>
+  <div class="holding-row"><span class="holding-symbol">MSFT</span><span class="holding-price">$416.03</span><span class="holding-change down">-0.61%</span><span class="holding-note">距52周高 -25.1%</span></div>
+  <div class="holding-row"><span class="holding-symbol">AAPL</span><span class="holding-price">$308.33</span><span class="holding-change down">-0.16%</span><span class="holding-note">距52周高 -1.1%</span></div>
+  <div class="holding-row"><span class="holding-symbol">TSM</span><span class="holding-price">$412.32</span><span class="holding-change up">+1.93%</span><span class="holding-note">距52周高 -2.3%</span></div>
+  <div class="holding-row"><span class="holding-symbol">AMD</span><span class="holding-price">$503.89</span><span class="holding-change up">+7.78%</span><span class="holding-note">距52周高 -0.6% 🔥 单日暴拉</span></div>
+  <div class="holding-row"><span class="holding-symbol">GOOGL</span><span class="holding-price">$388.88</span><span class="holding-change up">+1.54%</span><span class="holding-note">距52周高 -4.8%</span></div>
+  <div class="holding-row"><span class="holding-symbol">AMZN</span><span class="holding-price">$265.29</span><span class="holding-change down">-0.39%</span><span class="holding-note">距52周高 -4.8%</span></div>
+  <div class="holding-row"><span class="holding-symbol">NVDA</span><span class="holding-price">$214.86</span><span class="holding-change down">-0.22%</span><span class="holding-note">距52周高 -9.2%</span></div>
+  <div class="holding-row"><span class="holding-symbol">MSTR</span><span class="holding-price">$159.93</span><span class="holding-change neutral">+0.03%</span><span class="holding-note">⚠️ 距52周高 -65.0% 深套</span></div>
+</div>
+
+<!-- Trading Signal -->
+<div class="signal">
+  <div class="signal-label">今日信号</div>
+  <div class="signal-text">不动。SMH 在 ATH 边缘（$602 vs $604 高点），不符合任何加仓条件。AMD +7.78% 是情绪驱动——如果这是战术仓且你昨天没买，今天不该追。MSTR -65% 深水区，止损问题需要面对。</div>
+</div>
+
+<!-- AI Sector Digest -->
+<div class="card">
+  <div class="card-header">
+    <div class="dot" style="background:#a855f7"></div>
+    <h2>AI行业速报</h2>
+  </div>
+  <div class="digest-item"><span class="digest-tag tag-chip">芯片</span><span class="digest-text">SMH单日涨4.48%领跑全市场，半导体板块情绪极端乐观</span></div>
+  <div class="digest-item"><span class="digest-tag tag-ai">算力</span><span class="digest-text">NVDA横盘$214附近，距52周高-9.2%，等待催化剂突破</span></div>
+  <div class="digest-item"><span class="digest-tag tag-power">电力</span><span class="digest-text">AI数据中心电力需求持续增长，关注XLU/FUTY防御仓位</span></div>
+  <div class="digest-item"><span class="digest-tag tag-ai">应用</span><span class="digest-text">MSFT $416处于深度回调区(-25%)，若AI变现加速可能反转</span></div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h3>每天5分钟 · 持仓体检 + 信号过滤</h3>
+  <p>核心仓不动 · 战术仓止损 · FOMO不追 · 现金不焦虑</p>
+  <a href="#" class="cta-btn">订阅 $9.99/月</a>
+  <div class="cta-sub">每交易日盘后发布 · 含SMH技术位 + 均线位置 + 入场信号</div>
+</div>
+
+<div class="footer">Xiaofu Market Intel · AI时代投资日报 · 不构成投资建议</div>
+
+</div>
+</body>
+</html>
